@@ -1,0 +1,45 @@
+/* Segunda Questão */
+
+def calculadora(num1,num2,char):
+    if (char == "+"):
+        total = num1 + num2
+        palavra = "adição"
+    elif (char == "-"):
+        total = num1 - num2
+        palavra = "subtração"
+    elif (char == "x"):
+        total = num1 * num2
+        palavra = "multiplicação"
+    elif (char == "/"):
+        total = num1 / num2
+        palavra = "divisão"
+    elif (char == "^"):
+        total = num1**num2
+        palavra = "exponenciação"
+    
+    return total,palavra
+
+def pedirValores():
+    condicional = True
+    n1 = 0
+    n2 = 0
+
+    while condicional == True:
+        n1 = float(input("Digite o primeiro número: "))
+        n2 = float(input("Digite o segundo núemro: "))
+        char = str(input("Digite o modificador da equação: "))
+
+        if n1 == 0 and n2 == 0:
+          print("Não haverá equaçao, digite novamente!")
+        elif char != "x" and char != "+" and char != "-" and char != "/" and char != "^":
+          print("Caracter inválido!")
+        else:
+          condicional = False
+    return n1,n2,char
+
+def mostrarResultado(resultado,palavra):
+  print(f"Resultado da {palavra} é: {resultado} ")
+
+i = pedirValores()
+j = calculadora(i[0],i[1],i[2])
+mostrarResultado(j[0],j[1])
